@@ -1,0 +1,43 @@
+/***********************************************************************
+ * Module:  Frame.java
+ * Author:  Korisnik
+ * Purpose: Defines the Class Frame
+ ***********************************************************************/
+
+package view;
+
+import java.awt.Container;
+
+public class Frame extends Window {
+	
+	private static final long serialVersionUID = 1L;
+	public static Container framePosition = null;
+	
+   public Frame() {
+	 //Osnovna podšavanja
+	      setTitle("MiT - MakeItTrue");
+	      setDefaultCloseOperation(EXIT_ON_CLOSE);
+	      setExtendedState(MAXIMIZED_BOTH);
+	      
+	      
+	      //Podesavanja dimenzija i lokacije
+	      Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+	      Dimension frameSize = new Dimension(800,600);
+	      setSize(frameSize);
+	      
+	      Point locatin = new Point((screenSize.width-frameSize.width)/2,(screenSize.height-frameSize.height)/2);
+	      setLocation(locatin);
+	      setMinimumSize(frameSize);
+	      
+	      //Podesavanja ikonice
+	      Image icon = java.awt.Toolkit.getDefaultToolkit().getImage("icons/logo1.png").getScaledInstance(800,800,Image.SCALE_SMOOTH);
+	      setIconImage(icon);
+	      
+	      //Postavljanje komponenti pogleda
+	      Container contentPane = getContentPane();
+	      contentPane.setLayout(new BorderLayout());
+	      
+	      setVisible(true);
+   }
+
+}

@@ -1,0 +1,14 @@
+/***********************************************************************
+ * Module:  GraficEditor.java
+ * Author:  Notebook
+ * Purpose: Defines the Class GraficEditor
+ ***********************************************************************/
+
+package view;
+
+import java.util.*;
+
+public class GraficEditor extends Editor {
+   private Canvas canvas;
+
+}

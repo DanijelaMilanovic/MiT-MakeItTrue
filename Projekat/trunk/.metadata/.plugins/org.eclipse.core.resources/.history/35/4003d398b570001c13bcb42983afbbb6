@@ -1,0 +1,18 @@
+/***********************************************************************
+ * Module:  ComponentDecorator.java
+ * Author:  Notebook
+ * Purpose: Defines the Class ComponentDecorator
+ ***********************************************************************/
+
+package view;
+
+import java.util.*;
+
+public class ComponentDecorator extends Editor {
+   private Editor editor;
+   
+   public void setObjects() {
+      // TODO: implement
+   }
+
+}

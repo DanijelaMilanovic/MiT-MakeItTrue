@@ -1,0 +1,58 @@
+Registracija na repozitorijum
+Pre-conditions
+	Otvorena MiT aplikacija.
+Action steps
+	Korisnik bira opciju registracije na repozitorijum.
+	Korisnik bira SVC na čiji se repozitorijum registruje
+	Korisnik unosi URL postojećeg repozitorijuma
+	Korisnik unosi podatke za autentifikaciju.
+	Sistem šalje podatke na SVC.
+Extension steps
+	Unesen neadekvatan format URL-a
+		Korisnik se upozorava da je uneseni format URL-a nepostojeći.
+	Uneseni podaci nisu prosli autentifikaciju
+		Sistem obavještava korisnika da su podaci za autentifikaciju pogrešni.
+Exceptions
+	Nedostatak internet konekcije
+		Korisnik se obavještava da njegov računar nije povezan na internet, te shodno tome nije moguća registracija na repozitorijum
+Post-Conditions 
+	Registracija uspješno poslata administratorima na odobravanje.
+
+Prijava 
+Pre-conditions
+	Otvorena MiT aplikacija.
+Action steps
+	Korisnik bira opciju prijave na repozitorijum
+	Korisnik bira SVC na čiji se repozitorijum registruje
+	Korisnik unosi URL repozitorijuma.
+	Korisnik unosi podatke za autentifikaciju.
+	Sistem šalje podatke na SVC.
+Extension steps
+	Registracija na repozitorijum.
+		Korisnik bira opciju registrovanja na repozitorijum ako prethodno nema nalog na postojećem.
+	Unesen neadekvatan format URL-a
+		Korisnik se upozorava da je uneseni format URL-a nepostojeći.
+	Uneseni podaci nisu prosli autentifikaciju
+		Sistem obavještava korisnika da su podaci za autentifikaciju pogrešni.
+Exceptions
+	Nedostatak internet konekcije
+		Korisnik se obavještava da njegov računar nije povezan na internet, te shodno tome nije moguća prijava na repozitorijum
+Post-Conditions 
+	Korisnik uspješno prijavljen na izabrani repozitorijum.
+
+Odjava
+Pre-conditions
+	Korisnik prijavljen na postojeći repozitorijum.
+Action steps
+	Korisnik bira opciju odjave sa repozitorijuma.
+	Sistem provjerava korisnika da li je siguran da želi da se odjavi sa repozitorijuma.
+	Korisnik potvrđuje odluku u pomoćnom dijalogu.
+	SVC odjavljuje korisnika sa repozitorijuma.
+Extension steps
+	Negativan odgovor na pomoćnom dijalogu.
+		Korisnik ostaje prijavljen na postojećem repozitorijumu.
+Exceptions
+	Nedostatak internet konekcije
+		Korisnik se obavještava da njegov računar nije povezan na internet, tte shodno tome nije moguća odjava sa repozitorijuma.
+Post-Conditions 
+	Korisnik uspješno odjavljen sa repozitorijuma.

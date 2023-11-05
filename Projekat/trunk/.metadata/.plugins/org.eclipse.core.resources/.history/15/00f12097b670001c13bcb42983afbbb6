@@ -1,0 +1,12 @@
+/***********************************************************************
+ * Module:  MainClass.java
+ * Author:  Korisnik
+ * Purpose: Defines the Class MainClass
+ ***********************************************************************/
+
+package main;
+
+import java.util.*;
+
+public class MainClass {
+}

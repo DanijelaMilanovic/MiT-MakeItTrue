@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"listeners"},{"l":"main"},{"l":"model"},{"l":"model.commands"},{"l":"model.elements"},{"l":"model.memento"},{"l":"observer"},{"l":"view"},{"l":"view.contextmenu"},{"l":"view.editor"},{"l":"view.menu"},{"l":"view.statusbar"},{"l":"view.toolbar"},{"l":"view.tree"}];updateSearchResults();

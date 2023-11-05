@@ -1,0 +1,21 @@
+/***********************************************************************
+ * Module:  CreateProject.java
+ * Author:  Notebook
+ * Purpose: Defines the Class CreateProject
+ ***********************************************************************/
+
+package model;
+
+import java.util.*;
+
+public class CreateProject extends AbstractExecutableCommand {
+   public CreateProject(ApplicationModel applicationModel) {
+		super(applicationModel);
+		// TODO Auto-generated constructor stub
+	}
+
+public void execute() {
+      // TODO: implement
+   }
+
+}

@@ -1,0 +1,30 @@
+/***********************************************************************
+ * Module:  Application.java
+ * Author:  Notebook
+ * Purpose: Defines the Class Application
+ ***********************************************************************/
+
+package model;
+
+import view.ApplicationView;
+import java.util.*;
+
+public class Application {
+   private ApplicationModel applicationModel;
+   
+   private ApplicationView applicationView;
+   
+   public ApplicationModel getApplicationModel() {
+      return applicationModel;
+   }
+   
+   /** @param newApplicationModel */
+   public void setApplicationModel(ApplicationModel newApplicationModel) {
+      applicationModel = newApplicationModel;
+   }
+   
+   public Application() {
+      applicationView = new ApplicationView();
+   }
+
+}

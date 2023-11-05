@@ -1,0 +1,16 @@
+/***********************************************************************
+ * Module:  Frame.java
+ * Author:  Korisnik
+ * Purpose: Defines the Class Frame
+ ***********************************************************************/
+
+package view;
+
+import java.util.*;
+
+public class Frame extends Window {
+   public Frame() {
+      // TODO: implement
+   }
+
+}

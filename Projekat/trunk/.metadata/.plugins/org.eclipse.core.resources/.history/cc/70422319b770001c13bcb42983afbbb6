@@ -1,0 +1,69 @@
+/***********************************************************************
+ * Module:  Window.java
+ * Author:  Notebook
+ * Purpose: Defines the Class Window
+ ***********************************************************************/
+
+package view;
+
+import java.util.*;
+
+public abstract class Window {
+   private java.util.Collection<ViewComponents> viewComponents;
+   private MenuBar menuBar;
+   
+   
+   /** @pdGenerated default getter */
+   public java.util.Collection<ViewComponents> getViewComponents() {
+      if (viewComponents == null)
+         viewComponents = new java.util.Vector<ViewComponents>();
+      return viewComponents;
+   }
+   
+   /** @pdGenerated default iterator getter */
+   public java.util.Iterator getIteratorViewComponents() {
+      if (viewComponents == null)
+         viewComponents = new java.util.Vector<ViewComponents>();
+      return viewComponents.iterator();
+   }
+   
+   /** @pdGenerated default setter
+     * @param newViewComponents */
+   public void setViewComponents(java.util.Collection<ViewComponents> newViewComponents) {
+      removeAllViewComponents();
+      for (java.util.Iterator iter = newViewComponents.iterator(); iter.hasNext();)
+         addViewComponents((ViewComponents)iter.next());
+   }
+   
+   /** @pdGenerated default add
+     * @param newViewComponents */
+   public void addViewComponents(ViewComponents newViewComponents) {
+      if (newViewComponents == null)
+         return;
+      if (this.viewComponents == null)
+         this.viewComponents = new java.util.Vector<ViewComponents>();
+      if (!this.viewComponents.contains(newViewComponents))
+         this.viewComponents.add(newViewComponents);
+   }
+   
+   /** @pdGenerated default remove
+     * @param oldViewComponents */
+   public void removeViewComponents(ViewComponents oldViewComponents) {
+      if (oldViewComponents == null)
+         return;
+      if (this.viewComponents != null)
+         if (this.viewComponents.contains(oldViewComponents))
+            this.viewComponents.remove(oldViewComponents);
+   }
+   
+   /** @pdGenerated default removeAll */
+   public void removeAllViewComponents() {
+      if (viewComponents != null)
+         viewComponents.clear();
+   }
+   
+   public Window() {
+      // TODO: implement
+   }
+
+}

@@ -1,0 +1,69 @@
+/***********************************************************************
+ * Module:  ToolBar.java
+ * Author:  Notebook
+ * Purpose: Defines the Class ToolBar
+ ***********************************************************************/
+
+package view;
+
+import model.ExecutableCommand;
+import java.util.*;
+
+public class ToolBar extends ViewComponents {
+   public java.util.Collection<ExecutableCommand> executableCommand;
+   
+   public ToolBar() {
+      // TODO: implement
+   }
+   
+   
+   /** @pdGenerated default getter */
+   public java.util.Collection<ExecutableCommand> getExecutableCommand() {
+      if (executableCommand == null)
+         executableCommand = new java.util.HashSet<ExecutableCommand>();
+      return executableCommand;
+   }
+   
+   /** @pdGenerated default iterator getter */
+   public java.util.Iterator getIteratorExecutableCommand() {
+      if (executableCommand == null)
+         executableCommand = new java.util.HashSet<ExecutableCommand>();
+      return executableCommand.iterator();
+   }
+   
+   /** @pdGenerated default setter
+     * @param newExecutableCommand */
+   public void setExecutableCommand(java.util.Collection<ExecutableCommand> newExecutableCommand) {
+      removeAllExecutableCommand();
+      for (java.util.Iterator iter = newExecutableCommand.iterator(); iter.hasNext();)
+         addExecutableCommand((ExecutableCommand)iter.next());
+   }
+   
+   /** @pdGenerated default add
+     * @param newExecutableCommand */
+   public void addExecutableCommand(ExecutableCommand newExecutableCommand) {
+      if (newExecutableCommand == null)
+         return;
+      if (this.executableCommand == null)
+         this.executableCommand = new java.util.HashSet<ExecutableCommand>();
+      if (!this.executableCommand.contains(newExecutableCommand))
+         this.executableCommand.add(newExecutableCommand);
+   }
+   
+   /** @pdGenerated default remove
+     * @param oldExecutableCommand */
+   public void removeExecutableCommand(ExecutableCommand oldExecutableCommand) {
+      if (oldExecutableCommand == null)
+         return;
+      if (this.executableCommand != null)
+         if (this.executableCommand.contains(oldExecutableCommand))
+            this.executableCommand.remove(oldExecutableCommand);
+   }
+   
+   /** @pdGenerated default removeAll */
+   public void removeAllExecutableCommand() {
+      if (executableCommand != null)
+         executableCommand.clear();
+   }
+
+}

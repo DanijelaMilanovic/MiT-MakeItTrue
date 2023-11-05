@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+    <lang>langEn</lang>
+    <extended_state>0</extended_state>
+    <dimension>
+        <width>800</width>
+        <height>600</height>
+    </dimension>
+</config>

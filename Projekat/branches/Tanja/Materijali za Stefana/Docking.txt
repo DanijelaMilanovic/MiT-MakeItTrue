@@ -1,0 +1,134 @@
+ * Module:  Window.java
+ * Author:  Notebook
+ * Purpose: Defines the Class Window
+ ***********************************************************************/
+
+package view;
+
+import java.util.Vector;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JSplitPane;
+
+import com.javadocking.DockingManager;
+import com.javadocking.dock.Position;
+import com.javadocking.dock.SingleDock;
+import com.javadocking.dock.SplitDock;
+import com.javadocking.dock.TabDock;
+import com.javadocking.dockable.DefaultDockable;
+import com.javadocking.dockable.Dockable;
+import com.javadocking.dockable.DockingMode;
+import com.javadocking.model.FloatDockModel;
+
+import model.ApplicationModel;
+import model.Diagram;
+
+public abstract class Window extends JFrame {
+	private static final long serialVersionUID = 1L;
+
+	
+	private Vector<ViewComponents> viewComponents;
+	private MenuBar menuBar;
+	
+	public MenuBar getMenu() {
+		return menuBar;
+	}
+
+	public Vector<ViewComponents> getViewComponents() {
+		return viewComponents;
+	}
+
+	public void addViewComponent(ViewComponents viewComponent) {
+		viewComponents.add(viewComponent);
+	}
+
+	public void removeViewComponent(ViewComponents viewComponent) {
+		viewComponents.remove(viewComponent);
+	}
+
+	public Window(String type, ApplicationModel appModel) {
+		// Podesavanja ikonice
+		Image icon = java.awt.Toolkit.getDefaultToolkit().getImage("icons/logo1.png").getScaledInstance(800, 800,
+				Image.SCALE_SMOOTH);
+		viewComponents = new Vector<ViewComponents>();
+		setIconImage(icon);
+		//Toolkit toolkit = Toolkit.getDefaultToolkit();
+		////Dimension minDim = new Dimension(1000, 700);
+		//int h = ((int) toolkit.getScreenSize().getHeight());
+		//int w = ((int) toolkit.getScreenSize().getWidth());
+		//pravim dock model na koji kacim sve komponente koje setaju
+		FloatDockModel dockModel = new FloatDockModel();
+		dockModel.addOwner("window",this);
+		DockingManager.setDockModel(dockModel);
+		
+		
+		//za object browser
+		Dockable docableObjectBrowser = new DefaultDockable("dock1", projectBrowser,
+				"Oroject Browser", null, DockingMode.ALL);
+		//za toolbox
+		Dockable docableGraphicEditor = new DefaultDockable("dock2", projectPanel, "Workspace",
+				null, DockingMode.ALL - DockingMode.ALL);
+		//za graficki editor
+		Dockable docableToolbox = new DefaultDockable("dock3", components,
+				"Digital Logical Elements", null, DockingMode.ALL);
+		
+		//tsad pravim tabdokove, jedan lijevo(object browser), centar(Graficki editor), jedan desno(toolbox)
+		TabDock leftTabDock = new TabDock();
+		TabDock centerTabDock = new TabDock();
+		TabDock rightTabDock = new TabDock();
+
+		leftTabDock.addDockable(docableObjectBrowser, new Position(0));
+		centerTabDock.addDockable(docableGraphicEditor, new Position(0));
+		rightTabDock.addDockable(docableToolbox, new Position(0));
+
+		SplitDock leftSplitDock = new SplitDock();
+		leftSplitDock.addChildDock(leftTabDock, new Position(Position.CENTER));
+		SplitDock rightSplitDock = new SplitDock();
+		rightSplitDock.addChildDock(rightTabDock, new Position(Position.CENTER));
+		SplitDock centerSplitDock = new SplitDock();
+		centerSplitDock.addChildDock(centerTabDock, new Position(Position.CENTER));
+
+		//ovdje dodajem 
+		dockModel.addRootDock("", leftSplitDock, getOwner());
+		dockModel.addRootDock("", centerSplitDock, getOwner());
+		dockModel.addRootDock("", rightSplitDock, getOwner());
+
+		//pvdje odredjujem nacin razdvajanja
+		JSplitPane leftSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		JSplitPane rightSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		//ovje sam dodala sta s koje strane dolazi kad se razdvaja
+		leftSplitPane.setLeftComponent(leftSplitDock);
+		leftSplitPane.setRightComponent(centerSplitDock);
+		rightSplitPane.setLeftComponent(centerSplitDock);
+		rightSplitPane.setRightComponent(rightSplitDock); 
+		
+		switch (type) {
+			case "mainFrame":
+				menuBar = new MenuBar(appModel);
+	
+				addViewComponent(new ToolBar(appModel));
+	
+				addViewComponent(new StatusBar());
+	
+				// sve super u prikazu
+				// rjesiti dobijanje dijagrama
+	
+				Editor gf = new GraficEditor();
+	
+				gf = new ObjectBrowser(gf, menuBar.getViewMenu().getMenuItemObjectBrowser());
+				gf = new Toolbox(gf, menuBar.getViewMenu().getMenuItemToolbox());
+	
+				gf.addDiagrams(new Diagram());
+				gf.addDiagrams(new Diagram());
+	
+				addViewComponent(gf);
+	
+				break;
+		}
+
+	}
+
+}

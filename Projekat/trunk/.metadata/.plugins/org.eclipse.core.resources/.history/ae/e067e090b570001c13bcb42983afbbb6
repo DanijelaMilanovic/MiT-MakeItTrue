@@ -1,0 +1,16 @@
+/***********************************************************************
+ * Module:  StatusBar.java
+ * Author:  Notebook
+ * Purpose: Defines the Class StatusBar
+ ***********************************************************************/
+
+package view;
+
+import java.util.*;
+
+public class StatusBar extends ViewComponents {
+   public StatusBar() {
+      // TODO: implement
+   }
+
+}

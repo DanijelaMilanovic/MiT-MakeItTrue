@@ -1,0 +1,151 @@
+kreiranje projekta
+Pre-conditions
+	Otvorena MiT aplikacija.
+Action steps
+	Korisnik bira opciju kreiranja projekta.
+	Korisnik unosi lokaciju novog projekta i njegovo ime. 
+	Korisnik potvrđuje kreiranje projekta.
+	Sistem kreira novi projekat.
+Extension steps
+	Korisnik kreira novi projekat, na lokaciji već postojećeg, sa istim imenom.
+		Sistem obavještava korisnika da kreira projekat na lokaciji gdje postoji projekat sa istim imenom. Korisnik potvrđuje prebrisavanje postojećeg projekta. Ukoliko korisnik ne potvrdi prebrisavanje projekta, kreiranje se neće izvršiti, a sistem zahtjeva za ponovni unos
+	Korisnik je otvorio maksimalni broj projekata
+		Sistem obavještava korisnika da se otvaranje ne može izvršiti.
+Exceptions
+	
+Post-Conditions 
+	Sistem otvara projekat.
+	
+Otvaranje projekta
+Pre-conditions
+	Otvorena MiT aplikacija.
+Action steps
+	Korisnik bira opciju otvaranja projekta.
+	Korisnik unosi, ili bira, lokaciju na kojoj se projekat nalazi.
+	Sistem otvara projekat.
+Extension steps
+	Korisnik je otvorio maksimalni broj projekata
+		Sistem obavještava korisnika da se otvaranje ne može izvršiti.
+Exceptions
+	
+Post-Conditions 
+	Odabrani projekat otvoren.
+	
+Preuzimanje projekta sa repozitorijuma
+Pre-conditions
+	Korisnik je prijavljen sa repozitorijumom na kome postoji projekat.
+Action steps
+	Korisnik bira projekat sa repozitorijuma.
+	Korisnik unosi lokaciju gdje će biti sačuvana radna kopija projekta.
+	Korisnik bira opciju preuzimanja.
+	SVC preuzima projekat sa repozitorijuma.
+Extension steps
+	Na unijetoj lokaciji postoji projekat sa istim imenom.
+	Korisnik potvrđuje prebrisavanje projekta. Sistem preuzima projekat. Korisnik ne potvrđuje prebrisavanje projekta. Sistem ne preuzima projekat.
+	Korisnik je otvorio maksimalni broj projekata
+	Sistem obavještava korisnika da se otvaranje ne može izvršiti.
+Exceptions
+	Internet konekcija prekinuta u toku preuzimanja.
+	Sistem obavještava korisnika da se preuzimanje prekida (ili se neće pokrenuti). Sistem briše djelove radne kopije koje je uspjeo da preuzme na lokalnu memoriju racunara.
+Post-Conditions 
+	Sistem otvara projekat.
+
+Čuvanje postojećeg projekta
+Pre-conditions
+	Korisnik je označio otvoreni projekat.
+Action steps
+	Korisnik bira opciju čuvanja postojećeg projekta
+	Sistem čuva prethodno izvršene izmjene na projektu.
+Extension steps
+	Korisnik nije unieo nijednu izmjenu na projekat.
+	Sistem ne dozvoljava upotrebu ove mogućnosti.
+	Projekat nije prethodno sačuvan na određenoj lokaciji.
+	Sistem prelazi u čuvanje projekta.
+Exceptions
+Post-Conditions 
+	Izmjene na projektu uspješno sačuvane u lokalnoj memoriji računara.
+
+Čuvanje projekta
+Pre-conditions
+	Korisnik je označio otvoreni projekat.
+Action steps
+	Korisnik unosi lokaciju na kojoj želi da sačuva projekat i pod kojim imenom.
+	Korisnik unosi ili bira opciju čuvanja projekta.
+	Sistem čuva projekat.
+Extension steps
+	Korisnik čuva novi projekat, na lokaciji već postojećeg, sa istim imenom.
+	Sistem obavještava korisnika da čuva projekat na lokaciji gdje postoji projekat sa istim imenom. Korisnik potvrđuje prebrisavanje postojećeg projekta. Ukoliko korisnik ne potvrdi prebrisavanje projekta, kreiranje se neće izvršiti, a sistem zahtjeva za ponovni unos
+Exceptions
+Post-Conditions 
+	Projekat je uspješno sačuvan na lokalnoj memoriji računara.
+
+Postavljanje projekta na repozitorijum
+Pre-conditions
+	Korisnik je povezan sa repozitorijumom.
+	Označen je otvoren projekat.
+Action steps
+	Korisnik unosi komentar na reviziju projekta.
+	Korisnik bira opciju postavljanja projekta na repozitorijum.
+	SVC postavlja projekat na prijavljeni repozitorijum.
+Extension steps
+	Korisnik nije prijavljen ni na jedan repozitorijum.
+	Sistem obavještava korisnika da eksportovanje nije moguće ukoliko se ne prijavi na repozitorijum.
+	Korisnik nije uradio ni jednu izmjenu u odnosu na prethodnu verziju.
+	Sistem obavještava korisnika da ne postoji ni jedna promjena koja se može smatrati novom verzijom.
+Exceptions
+	Nestanak internet konekicje.
+	Sistem obavještava korisnika da nije povezan na internet i shodno tome ne može postaviti izabrani projekat na repozitorijum.
+Post-Conditions 
+	Projekat uspješno postavljen na odabrani repozitorijum.
+
+Generisanje dokumentacije projekta
+
+
+Štampanje projekta
+
+Preimenovanje projekta
+Pre-conditions
+	Korisnik je označio otvoreni projekat.
+Action steps
+	Korisnik bira opciju preimenovanja projekta.
+	Korisnik unosi novo ime projekta.
+	Sistem preimenuje projekat. 
+Extension steps
+	U direktorijumu postoji projekat sa istim imenom.
+	Korisnik potvrđuje novo ime projekta. Sistem obavještava korisnika da postoji projekat na lokaciji sa istim imenom. Korisnik potvrđuje prebrisavanje postojećeg projekta. Ukoliko korisnik ne potvrdi prebrisavanje projekta, preimenovanje se neće izvršiti, a sistem zahtjeva za ponovni unos
+Exceptions
+	
+Post-Conditions 
+	Projekat uspješno preimenovan.
+
+Brisanje projekta
+Pre-conditions
+	Korisnik je označio otvoreni projekat.
+Action steps
+	Korisnik bira opciju brisanja projekta.
+	Korisnik potvrđuje brisanje projekta sistemu.
+	Sistem briše projekat sa liste učitanih projekata.
+Extension steps
+	Korisnik nije potvrdio brisanje projekta sa lokalne memorije računara. 
+	Projekat ostaje na istoj lokaciji u lokalnoj memoriji računara.
+Exceptions
+	
+Post-Conditions 
+	Projekat uspješno izbrisan. 
+
+Zatvaranje projekta
+Pre-conditions
+	Korisnik je označio otvoreni projekat.
+Action steps
+	Korisnik bira opciju zatvaranja projekta.
+	Sistem provjerava da li je projekat prethodno sačuvan.
+	Sistem zatvara označeni projekat.
+Extension steps
+	Prethodno izvršene izmjene na projektu nisu sačuvane. 
+	Korisnik bira da li želi da sačuva prethodno izvršene izmjene prije zatvaranja projekta.
+Exceptions
+	
+Post-Conditions 
+	Projekat ostaje sačuvan u radnoj memoriji računara.
+	Sistem zatvara projekat.
+

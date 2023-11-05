@@ -1,0 +1,44 @@
+/***********************************************************************
+ * Module:  ApplicationProperty.java
+ * Author:  Notebook
+ * Purpose: Defines the Class ApplicationProperty
+ ***********************************************************************/
+
+package model;
+
+import java.util.*;
+
+public class ApplicationProperty {
+   private Position position;
+   private Dimension dimension;
+   private String language;
+   private PropertyParserStrategy parser;
+   
+   public Position getPosition() {
+      return position;
+   }
+   
+   /** @param newPosition */
+   public void setPosition(Position newPosition) {
+      position = newPosition;
+   }
+   
+   public Dimension getDimension() {
+      return dimension;
+   }
+   
+   /** @param newDimension */
+   public void setDimension(Dimension newDimension) {
+      dimension = newDimension;
+   }
+   
+   public String getLanguage() {
+      return language;
+   }
+   
+   /** @param newLanguage */
+   public void setLanguage(String newLanguage) {
+      language = newLanguage;
+   }
+
+}
